@@ -1,3 +1,25 @@
+From a constructivist perspective, emotional experiences emerge when individuals interpret their physiological states within a given context. 
+
+Alexithymia, a condition characterized by a reduced awareness of emotions, raises a discussion: 
+is this deficit caused by blunted physiological responses, or by a decoupling between physiological responses and cognitive processing? 
+
+To investigate this, the thesis introduces a novel method for measuring objective interoceptive accuracy. 
+Previous attempts to measure it, involved explicitly asking the participants to count their heartbeats, and measuring how well could they do it.
+Instead, the study evaluates whether their physiological states can accurately predict their emotional states, 
+assuming that subjects with good interoception will report emotional states according to their physiological states.
+
+Participants were exposed to emotion-inducing stimuli targeting Anger, Sadness, and Happiness 
+Physiological responses were continuously recorded using a wristband to capture Photoplethysmography (PPG) and Electrodermal Activity (EDA). 
+Given the limited amount of data per participant, and the experiment's structure; Heart Rate, Variability of Systolic Area (VSA), and the sample entropy of the skin conductance response were extracted to train Support Vector Machine classifiers. 
+
+We used the accuracy of the classifiers to quantify physiological informativeness about subjects' emotional states. 
+
+Classification accuracies were significantly better than chance. 
+When predicting subject-reported emotions, analyses showed a high probability (approximately 95%) that higher Difficulty Identifying Feelings (DIF) scores predicted lower classification accuracy. Suggesting less correlation between their 'physiological emotions' and what they report.
+Conversely, when predicting stimulus-intended emotions, DIF scores were not a predictor of classification accuracy. Suggesting no blunted physiological responses, and thus, a possible physiological-cognitive decoupling.
+
+
+
 # Emotion-Classification-from-Physiological-Signals
 This repository contains a complete Python pipeline for classifying human emotions from physiological signals collected with an **Empatica EmbracePlus** wearable. The project handles the entire workflow from raw `.avro` data to model training, including signal preprocessing, artifact removal, feature extraction, and classification.
 
