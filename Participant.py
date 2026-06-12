@@ -65,22 +65,52 @@ class Participant:
         with open(questionnaires_path, 'r') as file:
             self.questionnaires = json.load(file)
 
+        reverse_item_indices = [4, 5, 10, 18, 19]
+
         dif_items = [1, 3, 6, 7, 9, 13, 14]
         dif_score = 0
         for item in dif_items:
             dif_score = dif_score + self.questionnaires['tas20']['responses'][item-1]
         self.dif_score = dif_score
+
+        dif_corrected = 0
+        for item in dif_items:
+            if item in reverse_item_indices:
+                dif_corrected = dif_corrected + (6 - self.questionnaires['tas20']['responses'][item-1])
+            else:
+                dif_corrected = dif_corrected + self.questionnaires['tas20']['responses'][item-1]
+        self.dif_corrected = dif_corrected
+
         ddf_items = [2, 4, 11, 12, 17]
         ddf_score = 0
         for item in ddf_items:
             ddf_score = ddf_score + self.questionnaires['tas20']['responses'][item-1]
         self.ddf_score = ddf_score
+
+        ddf_corrected = 0
+        for item in ddf_items:
+            if item in reverse_item_indices:
+                ddf_corrected = ddf_corrected + (6 - self.questionnaires['tas20']['responses'][item-1])
+            else:
+                ddf_corrected = ddf_corrected + self.questionnaires['tas20']['responses'][item-1]
+        self.ddf_corrected = ddf_corrected
+
         eot_items = [5, 8, 10, 15, 16, 18, 19, 20]
         eot_score = 0
         for item in eot_items:
             eot_score = eot_score + self.questionnaires['tas20']['responses'][item-1]
         self.eot_score = eot_score
+
+        eot_corrected = 0
+        for item in eot_items:
+            if item in reverse_item_indices:
+                eot_corrected = eot_corrected + (6 - self.questionnaires['tas20']['responses'][item-1])
+            else:
+                eot_corrected = eot_corrected + self.questionnaires['tas20']['responses'][item-1]
+        self.eot_corrected = eot_corrected
+
         self.tas_score = dif_score + ddf_score + eot_score
+        self.tas_corrected = dif_corrected + ddf_corrected + eot_corrected
 
         pa_items = [1, 3, 5, 9, 10, 12, 14, 16, 17, 19]
         pa_score = 0
@@ -126,10 +156,6 @@ class Participant:
 
     def get_indexes(self):
         return list(self.markers.index)
-    
-    # def get_rawData_from_indexes(self, index_list, delta_start, delta_end):
-    #     """
-    #     """
 
     def get_rawData_from_indexes(self, index_list, delta_start, duration):
         """Extracts segments of raw signal data for a given list of event indexes.
@@ -181,6 +207,9 @@ class Participant:
         return all_segments
 
     def get_rawData_from_timestamp(self, timestamp, delta_start, duration):
+        """
+        Every parameter must be in seconds.
+        """
         segment_start_ts = timestamp + delta_start
         segment_end_ts = segment_start_ts + duration
 
@@ -196,10 +225,12 @@ class Participant:
             elif isinstance(signal_data, pd.Series):
                 mask = (signal_data >= segment_start_ts) & (signal_data <= segment_end_ts)
                 rawData_segments[signal_name] = signal_data[mask]
-
         return rawData_segments
 
     def get_timestamp_from_index(self, index, img_idx = 0):
+        """
+        Returns the corresponding timestamp in seconds
+        """
         i_markers = self.markers.loc[index]
         if i_markers['condition'] != 'image-only':
             return float(i_markers['audio_onset'])/1000
@@ -219,8 +250,6 @@ class Participant:
             mask = self.emotion_identification_mask(signal_name, index)
             signals_segment[signal_name] = self.signals[signal_name][mask]
         return signals_segment
-
-
 
     def get_bvp(self, index):
         mask = (self.signals['bvp']['timestamp'] >= self.get_index_timestamp(index)) & \
