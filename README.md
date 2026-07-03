@@ -1,3 +1,5 @@
+Abstract
+
 From a constructivist perspective, emotional experiences emerge when individuals interpret their physiological states within a given context. 
 
 Alexithymia, a condition characterized by a reduced awareness of emotions, raises a discussion: 
