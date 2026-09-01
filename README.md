@@ -1,16 +1,14 @@
-*Abstract*
+*Abstract* <br>
 
-From a constructivist perspective, emotional experiences emerge when individuals interpret their physiological states within a given context. 
-In an experiment conducted by Dutton and Aron (1974), subjects walking across a dangerous bridge were asked to fill a questionnaire, and later received the phone number of the female interviewer. 
-When compared to a control group of subjects that walked across a safer bridge, there were significantly more subjects that contacted the female interviewer afterwards.
-
+From a constructivist perspective, emotional experiences emerge when individuals interpret their physiological states within a given context. <br>
 Alexithymia, a condition characterized by a reduced awareness of emotions, raises a discussion: 
 is this deficit caused by blunted physiological responses, or by a decoupling between physiological responses and cognitive processing? 
 
 To investigate this, the thesis implements a novel method for measuring objective interoceptive accuracy. 
 Previous attempts to measure it, involved explicitly asking subjects to count their heartbeats, and measuring how well could they do it (Garfinkel et al. 2015).
-Alternatively, the current study evaluates whether their physiological states can predict their emotional states, 
-expecting that subjects with higher objective interoceptive accuracy will report emotions compatible with their physiological states.
+Alternatively, the current study evaluates whether subjects' physiological states can predict their emotional states, 
+expecting that subjects with higher objective interoceptive accuracy will report emotions compatible with their physiological states. 
+The physiological signals of subjects with higher objective interoceptive accuracy should carry more information about their reported emotional states.
 
 Participants were exposed to emotion-inducing stimuli targeting Anger, Sadness, and Happiness 
 Physiological responses were continuously recorded using a wristband (Empatica EmbracePlus) to capture Photoplethysmography (PPG) and Electrodermal Activity (EDA). 
@@ -20,12 +18,8 @@ We used the accuracy of the classifiers to quantify physiological informativenes
 
 Classification accuracies were significantly better than chance. 
 When predicting subject-reported emotions, analyses showed a high probability (approximately 95%) that higher Difficulty Identifying Feelings (DIF) scores predicted lower classification accuracy. Suggesting less correlation between their 'physiological emotions' and what they report.
-Conversely, when predicting stimulus-intended emotions, DIF scores were not a predictor of classification accuracy. 
-These results suggest no blunted physiological responses, and thus, a possible physiological-cognitive decoupling.
-
-It is important to mention that this experiment was a first attempt, and considerable limitations affect the results. 
-The structure of the experiment limited the amount of data per perticipant. 
-Additionally, wristband-related issues invalidated multiple recordings segments. 
+This was an explorative study and a first attempt to implement the method. 
+Significant limitations should be mentioned, such as the use of a wearable device (Empatica EmbracePlus) and a lack of physiological recordings due to a exploration of different stimuli conditions.
 Overall, the strategy implemented to measure objective interoceptive accuracy seems promising. 
 
 Garfinkel, S. N., Seth, A. K., Barrett, A. B., Suzuki, K., & Critchley, H. D. (2015). Knowing your own heart: distinguishing interoceptive accuracy from interoceptive awareness. Biological psychology, 104, 65-74.
