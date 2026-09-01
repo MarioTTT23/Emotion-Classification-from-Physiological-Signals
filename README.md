@@ -1,4 +1,5 @@
 *Abstract*
+
 From a constructivist perspective, emotional experiences emerge when individuals interpret their physiological states within a given context. 
 In an experiment conducted by Dutton and Aron (1974), subjects walking across a dangerous bridge were asked to fill a questionnaire, and later received the phone number of the female interviewer. 
 When compared to a control group of subjects that walked across a safer bridge, there were significantly more subjects that contacted the female interviewer afterwards.
